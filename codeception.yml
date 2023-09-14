@@ -8,7 +8,7 @@ suites:
         modules:
             enabled:
                 - REST:
-                    url: http://localhost/api
+                    url: https://main-bvxea6i-p5ymayxy7m4au.de-2.platformsh.site/api/v1/employee/
                     depends: PhpBrowser
         step_decorators:
             - \Codeception\Step\AsJson
