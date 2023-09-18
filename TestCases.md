@@ -913,3 +913,28 @@
   2.Код ответа 400  
   3.Тело ответа имеет следующий вид: {"message": "string"}
 - **STATUS:** failed
+
+
+---
+
+
+- **ID:** emp039
+- **Priority:** A
+- **Requirement:** 3
+- **TITLE:** Получение сотрудника по id
+- **Precondition:** Сотрудник добавлен, известен id 
+
+- **STEPS:**  
+  1.Отправить GET запрос на https://main-bvxea6i-p5ymayxy7m4au.de-2.platformsh.site/api/v1/employee/{id}  
+  2.Проверить код ответа  
+  3.Проверить тело ответа
+- **EXPECTED RESULTS:**  
+  1   
+  2.Код ответа 200  
+  3.Тело ответа возвращается в формате json и имеет следующий вид:  
+    {"id": 0,  
+    "name": "string",  
+    "email": "string",  
+    "position": "string",  
+    "age": 0}
+- **STATUS:** passed

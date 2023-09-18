@@ -333,3 +333,25 @@
 - **reproducibility:** всегда
 - **severity:** высокая
 - **priority:** средний
+
+
+---
+
+
+- **ID:** emp_bug_017
+- **SUMMARY:** Метод GET возвращает поле "age" с типом "string"
+- **DESCRIPTION:** При get запросе возвращается тело ответа, поле "age" возвращается с типом "string"  
+  **Act:** статус 200, тело ответа в формате json, поле "age" с типом "string"  
+  **Exp:** статус 200, тело ответа в формате json, поле "age" с типом "integer"
+- **REQ:** 3
+- **STEPS TO REPRODUCE:**  
+  1.Отправить GET запрос в формате json на https://main-bvxea6i-p5ymayxy7m4au.de-2.platformsh.site/api/v1/employee/{id}  
+  {"name" => "Vic",  
+  "email" => "vic@mail.ru",  
+  "position" => "QA",  
+  "age" => 31}
+
+- **reproducibility:** всегда
+- **severity:** низкая
+- **priority:** низкий
+- **additional info:** Несмотря на неверный тип возвращаемых данных, приложение работает
