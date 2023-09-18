@@ -937,4 +937,46 @@
     "email": "string",  
     "position": "string",  
     "age": 0}
+- **STATUS:** failed
+
+
+---
+
+
+- **ID:** emp040
+- **Priority:** A
+- **Requirement:** 3
+- **TITLE:** Получение сотрудника по несуществующему id
+- **ADDITIONAL INFO:** {"id": 999999}
+
+- **STEPS:**  
+  1.Отправить GET запрос на https://main-bvxea6i-p5ymayxy7m4au.de-2.platformsh.site/api/v1/employee/{id}  
+  2.Проверить код ответа  
+  3.Проверить тело ответа
+- **EXPECTED RESULTS:**  
+  1   
+  2.Код ответа 404  
+  3.Тело ответа возвращается в формате json и имеет следующий вид:  
+  {"message": "string"}
 - **STATUS:** passed
+
+
+---
+
+
+- **ID:** emp041
+- **Priority:** A
+- **Requirement:** 3
+- **TITLE:** Получение сотрудника по некорректному id
+- **ADDITIONAL INFO:** {"id": "getemployee"}
+
+- **STEPS:**  
+  1.Отправить GET запрос на https://main-bvxea6i-p5ymayxy7m4au.de-2.platformsh.site/api/v1/employee/{id}  
+  2.Проверить код ответа  
+  3.Проверить тело ответа
+- **EXPECTED RESULTS:**  
+  1   
+  2.Код ответа 404  
+  3.Тело ответа возвращается в формате json и имеет следующий вид:  
+  {"message": "string"}
+- **STATUS:** failed

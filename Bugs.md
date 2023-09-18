@@ -345,13 +345,25 @@
   **Exp:** статус 200, тело ответа в формате json, поле "age" с типом "integer"
 - **REQ:** 3
 - **STEPS TO REPRODUCE:**  
-  1.Отправить GET запрос в формате json на https://main-bvxea6i-p5ymayxy7m4au.de-2.platformsh.site/api/v1/employee/{id}  
-  {"name" => "Vic",  
-  "email" => "vic@mail.ru",  
-  "position" => "QA",  
-  "age" => 31}
+  1.Отправить GET запрос с существующим id на https://main-bvxea6i-p5ymayxy7m4au.de-2.platformsh.site/api/v1/employee/{id}
 
 - **reproducibility:** всегда
 - **severity:** низкая
 - **priority:** низкий
 - **additional info:** Несмотря на неверный тип возвращаемых данных, приложение работает
+
+
+---
+
+
+- **ID:** emp_bug_018
+- **SUMMARY:** Ошибка сервера при get запросе с некорректным id
+- **DESCRIPTION:** При get запросе с указанием некорректного id, ошибка 500, Internal Server Error  
+  **Act:** статус 500  
+  **Exp:** статус 404
+- **REQ:** 3
+- **STEPS TO REPRODUCE:**  
+  1.Отправить GET запрос на https://main-bvxea6i-p5ymayxy7m4au.de-2.platformsh.site/api/v1/employee/getemployee
+- **reproducibility:** всегда
+- **severity:** средняя
+- **priority:** средний

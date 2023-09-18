@@ -53,4 +53,20 @@ class GetEmployeeByIdCest
             ]
         );
     }
+
+    public function getEmployeeWithNonExistentId(ApiTester $apiTester): void
+    {
+        $apiTester->wantToTest("Get Employee With Non-Existent Id");
+        $apiTester->sendGet("999999");
+        $apiTester->seeResponseCodeIs(HttpCode::NOT_FOUND);
+        $apiTester->seeResponseIsJson();
+    }
+
+    public function getEmployeeWithIncorrectId(ApiTester $apiTester): void
+    {
+        $apiTester->wantToTest("Get Employee With Incorrect Id");
+        $apiTester->sendGet("getemployee");
+        $apiTester->seeResponseCodeIs(HttpCode::NOT_FOUND);
+        $apiTester->seeResponseIsJson();
+    }
 }
