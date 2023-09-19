@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Tests;
 
+use Codeception\Example;
 use Codeception\Util\HttpCode;
 use PHPUnit\Framework\Attributes\Before;
 use Tests\Support\ApiTester;
@@ -25,6 +26,11 @@ class GetEmployeeByIdCest
         $response = $apiTester->sendPostAsJson("add", $requestData);
         $apiTester->seeResponseCodeIs(HttpCode::CREATED);
         $apiTester->seeResponseIsJson();
+        $apiTester->seeResponseMatchesJsonType(
+        [
+            "id" => "integer"
+        ]
+    );
         $this->employeeId = $response["id"];
     }
 
@@ -54,19 +60,37 @@ class GetEmployeeByIdCest
         );
     }
 
-    public function getEmployeeWithNonExistentId(ApiTester $apiTester): void
+    /** @dataProvider incorrectIdProvider */
+    public function getEmployeeWithIncorrectId(ApiTester $apiTester, Example $provider): void
     {
         $apiTester->wantToTest("Get Employee With Non-Existent Id");
-        $apiTester->sendGet("999999");
+        $apiTester->sendGet($provider["incorrectId"]);
         $apiTester->seeResponseCodeIs(HttpCode::NOT_FOUND);
         $apiTester->seeResponseIsJson();
+        $apiTester->seeResponseMatchesJsonType(
+            [
+                "message" => "string"
+            ]
+        );
     }
 
-    public function getEmployeeWithIncorrectId(ApiTester $apiTester): void
+
+    private function incorrectIdProvider(): iterable
     {
-        $apiTester->wantToTest("Get Employee With Incorrect Id");
-        $apiTester->sendGet("getemployee");
-        $apiTester->seeResponseCodeIs(HttpCode::NOT_FOUND);
-        $apiTester->seeResponseIsJson();
+        yield [
+            "incorrectId" => "999999"
+        ];
+
+        yield [
+            "incorrectId" => ""
+        ];
+
+        yield [
+            "incorrectId" => "getemployee"
+        ];
+
+        yield [
+            "incorrectId" => "-666"
+        ];
     }
 }

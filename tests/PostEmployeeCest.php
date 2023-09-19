@@ -85,6 +85,16 @@ class PostEmployeeCest
             ]
         ];
 
+        //age negative
+        yield [
+            "requestBody" => [
+                "name" => "Vic",
+                "email" => "vic@mail.ru",
+                "position" => "QA",
+                "age" => -31
+            ]
+        ];
+
         //age type float
         yield [
             "requestBody" => [
@@ -114,7 +124,7 @@ class PostEmployeeCest
             ]
         ];
 
-        //age void
+        //empty age
         yield [
             "requestBody" => [
                 "name" => "Vic",
@@ -233,7 +243,7 @@ class PostEmployeeCest
             ]
         ];
 
-        //email void
+        //empty email
         yield [
             "requestBody" => [
                 "name" => "Vic",
@@ -322,7 +332,7 @@ class PostEmployeeCest
             ]
         ];
 
-        //position void
+        //empty position
         yield [
             "requestBody" => [
                 "name" => "Vic",
@@ -402,7 +412,7 @@ class PostEmployeeCest
             ]
         ];
 
-        //name void
+        //empty name
         yield [
             "requestBody" => [
                 "name" => "",

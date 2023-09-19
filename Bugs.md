@@ -367,3 +367,19 @@
 - **reproducibility:** всегда
 - **severity:** средняя
 - **priority:** средний
+
+
+---
+
+
+- **ID:** emp_bug_019
+- **SUMMARY:** Ошибка сервера при get запросе без id
+- **DESCRIPTION:** При get запросе без указания id, ошибка 500, Internal Server Error  
+  **Act:** статус 500  
+  **Exp:** статус 404
+- **REQ:** 3
+- **STEPS TO REPRODUCE:**  
+  1.Отправить GET запрос на https://main-bvxea6i-p5ymayxy7m4au.de-2.platformsh.site/api/v1/employee/getemployee/{id}
+- **reproducibility:** всегда
+- **severity:** средняя
+- **priority:** средний

@@ -71,6 +71,31 @@
 - **ID:** emp004
 - **Priority:** A
 - **Requirement:** 4.4
+- **TITLE:** Добавление сотрудника, возраст отрицательное число
+- **ADDITIONAL INFO:** Параметры POST запроса передаются в теле запроса в JSON объекте  
+  {"name" => "Vic",  
+  "email" => "vic@mail.ru",  
+  "position" => "QA",  
+  "age" => -31}
+
+- **STEPS:**  
+  1.Отправить POST запрос на https://main-bvxea6i-p5ymayxy7m4au.de-2.platformsh.site/api/v1/employee/add  
+  2.Проверить код ответа  
+  3.Проверить тело ответа
+- **EXPECTED RESULTS:**  
+  1  
+  2.Код ответа 400  
+  3.1 Тело ответа в формате JSON  
+  3.2 Тело ответа имеет следующий вид: {"message": "string"}
+- **STATUS:** failed
+
+
+---
+
+
+- **ID:** emp005
+- **Priority:** A
+- **Requirement:** 4.4
 - **TITLE:** Добавление сотрудника, возраст тип "float"
 - **ADDITIONAL INFO:** Параметры POST запроса передаются в теле запроса в JSON объекте  
   {"name" => "Vic",  
@@ -93,7 +118,7 @@
 ---
 
 
-- **ID:** emp005
+- **ID:** emp006
 - **Priority:** A
 - **Requirement:** 4.4
 - **TITLE:** Добавление сотрудника, без поля "возраст"
@@ -117,7 +142,7 @@
 ---
 
 
-- **ID:** emp006
+- **ID:** emp007
 - **Priority:** A
 - **Requirement:** 4.4
 - **TITLE:** Добавление сотрудника, возраст тип "bool"
@@ -142,7 +167,7 @@
 ---
 
 
-- **ID:** emp007
+- **ID:** emp008
 - **Priority:** A
 - **Requirement:** 4.4
 - **TITLE:** Добавление сотрудника, возраст пустая строка
@@ -167,7 +192,7 @@
 ---
 
 
-- **ID:** emp008
+- **ID:** emp009
 - **Priority:** A
 - **Requirement:** 4.4
 - **TITLE:** Добавление сотрудника, возраст тип array
@@ -192,7 +217,7 @@
 ---
 
 
-- **ID:** emp009
+- **ID:** emp010
 - **Priority:** A
 - **Requirement:** 4.4
 - **TITLE:** Добавление сотрудника, возраст null
@@ -217,7 +242,7 @@
 ---
 
 
-- **ID:** emp010
+- **ID:** emp011
 - **Priority:** A
 - **Requirement:** 4.4
 - **TITLE:** Добавление сотрудника, возраст строка с пробелами
@@ -242,7 +267,7 @@
 ---
 
 
-- **ID:** emp011
+- **ID:** emp012
 - **Priority:** A
 - **Requirement:** 4.2
 - **TITLE:** Добавление сотрудника, без поля "email"
@@ -266,7 +291,7 @@
 ---
 
 
-- **ID:** emp012
+- **ID:** emp013
 - **Priority:** A
 - **Requirement:** 4.2
 - **TITLE:** Добавление сотрудника, "email" неуникальный
@@ -295,7 +320,7 @@
 ---
 
 
-- **ID:** emp013
+- **ID:** emp014
 - **Priority:** A
 - **Requirement:** 4.2
 - **TITLE:** Добавление сотрудника, "email" integer
@@ -319,7 +344,7 @@
 ---
 
 
-- **ID:** emp014
+- **ID:** emp015
 - **Priority:** A
 - **Requirement:** 4.2
 - **TITLE:** Добавление сотрудника, "email" float
@@ -343,7 +368,7 @@
 ---
 
 
-- **ID:** emp015
+- **ID:** emp016
 - **Priority:** A
 - **Requirement:** 4.2
 - **TITLE:** Добавление сотрудника, "email" тип array
@@ -367,7 +392,7 @@
 ---
 
 
-- **ID:** emp016
+- **ID:** emp017
 - **Priority:** A
 - **Requirement:** 4.2
 - **TITLE:** Добавление сотрудника, "email" тип bool
@@ -391,7 +416,7 @@
 ---
 
 
-- **ID:** emp017
+- **ID:** emp018
 - **Priority:** A
 - **Requirement:** 4.2
 - **TITLE:** Добавление сотрудника, "email" без "@"
@@ -415,7 +440,7 @@
 ---
 
 
-- **ID:** emp018
+- **ID:** emp019
 - **Priority:** A
 - **Requirement:** 4.2
 - **TITLE:** Добавление сотрудника, "email" без "."
@@ -439,7 +464,7 @@
 ---
 
 
-- **ID:** emp019
+- **ID:** emp020
 - **Priority:** A
 - **Requirement:** 4.2
 - **TITLE:** Добавление сотрудника, "email" без "." и "@"
@@ -463,7 +488,7 @@
 ---
 
 
-- **ID:** emp020
+- **ID:** emp021
 - **Priority:** A
 - **Requirement:** 4.2
 - **TITLE:** Добавление сотрудника, "email" пустая строка
@@ -487,7 +512,7 @@
 ---
 
 
-- **ID:** emp021
+- **ID:** emp022
 - **Priority:** A
 - **Requirement:** 4.2
 - **TITLE:** Добавление сотрудника, "email" null
@@ -511,7 +536,7 @@
 ---
 
 
-- **ID:** emp022
+- **ID:** emp023
 - **Priority:** A
 - **Requirement:** 4.2
 - **TITLE:** Добавление сотрудника, "email" пустая строка с пробелами
@@ -536,7 +561,7 @@
 ---
 
 
-- **ID:** emp023
+- **ID:** emp024
 - **Priority:** A
 - **Requirement:** 4.3
 - **TITLE:** Добавление сотрудника без "position"
@@ -559,7 +584,7 @@
 ---
 
 
-- **ID:** emp024
+- **ID:** emp025
 - **Priority:** A
 - **Requirement:** 4.3
 - **TITLE:** Добавление сотрудника, "position" тип integer
@@ -583,7 +608,7 @@
 ---
 
 
-- **ID:** emp025
+- **ID:** emp026
 - **Priority:** A
 - **Requirement:** 4.3
 - **TITLE:** Добавление сотрудника, "position" тип float
@@ -607,7 +632,7 @@
 ---
 
 
-- **ID:** emp026
+- **ID:** emp027
 - **Priority:** A
 - **Requirement:** 4.3
 - **TITLE:** Добавление сотрудника, "position" тип array
@@ -631,7 +656,7 @@
 ---
 
 
-- **ID:** emp027
+- **ID:** emp028
 - **Priority:** A
 - **Requirement:** 4.3
 - **TITLE:** Добавление сотрудника, "position" тип bool
@@ -655,7 +680,7 @@
 ---
 
 
-- **ID:** emp028
+- **ID:** emp029
 - **Priority:** A
 - **Requirement:** 4.3
 - **TITLE:** Добавление сотрудника, "position" null
@@ -679,7 +704,7 @@
 ---
 
 
-- **ID:** emp029
+- **ID:** emp030
 - **Priority:** A
 - **Requirement:** 4.3
 - **TITLE:** Добавление сотрудника, "position" пустая строка
@@ -703,7 +728,7 @@
 ---
 
 
-- **ID:** emp030
+- **ID:** emp031
 - **Priority:** A
 - **Requirement:** 4.3
 - **TITLE:** Добавление сотрудника, "position" пустая строка с пробелами
@@ -727,7 +752,7 @@
 ---
 
 
-- **ID:** emp031
+- **ID:** emp032
 - **Priority:** A
 - **Requirement:** 4.1
 - **TITLE:** Добавление сотрудника без "name"
@@ -750,7 +775,7 @@
 ---
 
 
-- **ID:** emp032
+- **ID:** emp033
 - **Priority:** A
 - **Requirement:** 4.1
 - **TITLE:** Добавление сотрудника, "name" integer
@@ -774,7 +799,7 @@
 ---
 
 
-- **ID:** emp033
+- **ID:** emp034
 - **Priority:** A
 - **Requirement:** 4.1
 - **TITLE:** Добавление сотрудника, "name" float
@@ -798,7 +823,7 @@
 ---
 
 
-- **ID:** emp034
+- **ID:** emp035
 - **Priority:** A
 - **Requirement:** 4.1
 - **TITLE:** Добавление сотрудника, "name" тип array
@@ -822,7 +847,7 @@
 ---
 
 
-- **ID:** emp035
+- **ID:** emp036
 - **Priority:** A
 - **Requirement:** 4.1
 - **TITLE:** Добавление сотрудника, "name" тип bool
@@ -846,7 +871,7 @@
 ---
 
 
-- **ID:** emp036
+- **ID:** emp037
 - **Priority:** A
 - **Requirement:** 4.1
 - **TITLE:** Добавление сотрудника, "name" null
@@ -870,7 +895,7 @@
 ---
 
 
-- **ID:** emp037
+- **ID:** emp038
 - **Priority:** A
 - **Requirement:** 4.1
 - **TITLE:** Добавление сотрудника, "name" пустая строка
@@ -894,7 +919,7 @@
 ---
 
 
-- **ID:** emp038
+- **ID:** emp039
 - **Priority:** A
 - **Requirement:** 4.1
 - **TITLE:** Добавление сотрудника, "name" пустая строка с пробелами
@@ -918,7 +943,7 @@
 ---
 
 
-- **ID:** emp039
+- **ID:** emp040
 - **Priority:** A
 - **Requirement:** 3
 - **TITLE:** Получение сотрудника по id
@@ -943,7 +968,7 @@
 ---
 
 
-- **ID:** emp040
+- **ID:** emp041
 - **Priority:** A
 - **Requirement:** 3
 - **TITLE:** Получение сотрудника по несуществующему id
@@ -964,11 +989,32 @@
 ---
 
 
-- **ID:** emp041
+- **ID:** emp042
 - **Priority:** A
 - **Requirement:** 3
 - **TITLE:** Получение сотрудника по некорректному id
 - **ADDITIONAL INFO:** {"id": "getemployee"}
+
+- **STEPS:**  
+  1.Отправить GET запрос на https://main-bvxea6i-p5ymayxy7m4au.de-2.platformsh.site/api/v1/employee/{id}  
+  2.Проверить код ответа  
+  3.Проверить тело ответа
+- **EXPECTED RESULTS:**  
+  1   
+  2.Код ответа 404  
+  3.Тело ответа возвращается в формате json и имеет следующий вид:  
+  {"message": "string"}
+- **STATUS:** failed
+
+
+---
+
+
+- **ID:** emp043
+- **Priority:** A
+- **Requirement:** 3
+- **TITLE:** Получение сотрудника без указания id
+- **ADDITIONAL INFO:** {"id": ""}
 
 - **STEPS:**  
   1.Отправить GET запрос на https://main-bvxea6i-p5ymayxy7m4au.de-2.platformsh.site/api/v1/employee/{id}  
