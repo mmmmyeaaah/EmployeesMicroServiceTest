@@ -20,7 +20,7 @@
 
 
 - **ID:** emp_bug_002
-- **SUMMARY:** Успешное добавление сотрудника при дробном значеним поля "возраст"
+- **SUMMARY:** Успешное добавление сотрудника при дробном значении поля "возраст"
 - **DESCRIPTION:** При post запросе с типом данных "float" в поле "age", происходит успешное добавление сотрудника  
   **Act:** успешное добавление сотрудника, статус-код 201  
   **Exp:** ошибка 400, validation failed
@@ -63,7 +63,7 @@
 
 
 - **ID:** emp_bug_004
-- **SUMMARY:** Успешное добавление сотрудника при булевом значеним поля "возраст"
+- **SUMMARY:** Успешное добавление сотрудника при булевом значении поля "возраст"
 - **DESCRIPTION:** При post запросе с типом данных "bool" в поле "age", происходит успешное добавление сотрудника  
   **Act:** успешное добавление сотрудника, статус-код 201  
   **Exp:** ошибка 400, validation failed
@@ -380,6 +380,44 @@
 - **REQ:** 3
 - **STEPS TO REPRODUCE:**  
   1.Отправить GET запрос на https://main-bvxea6i-p5ymayxy7m4au.de-2.platformsh.site/api/v1/employee/getemployee/{id}
+- **reproducibility:** всегда
+- **severity:** средняя
+- **priority:** средний
+
+
+---
+
+
+- **ID:** emp_bug_020
+- **SUMMARY:** Остаётся запись в бд, при удалении сотрудника
+- **DESCRIPTION:**  При delete запросе с корректным id, возвращается статус код 204. Однако данные сотрудника не удаляются из базы данных   
+  **Act:** Код 204, запись о сотруднике осталась в базе данных  
+  **Exp:** Код 204, сотрудник удалён из базы данных
+- **REQ:** 5
+- **STEPS TO REPRODUCE:**  
+  1.Создать пользователя  
+  2.Удалить его, отправив delete запрос на https://main-bvxea6i-p5ymayxy7m4au.de-2.platformsh.site/api/v1/employee/remove/{id}  
+  3.Проверить пользователя в бд, сделав запрос на https://main-bvxea6i-p5ymayxy7m4au.de-2.platformsh.site/api/v1/employee/{id}  
+- **reproducibility:** всегда
+- **severity:** высокая
+- **priority:** высокий
+
+
+---
+
+
+- **ID:** emp_bug_021
+- **SUMMARY:** Ошибка 500 при delete запросе с некорректным id
+- **DESCRIPTION:**  При delete запросе с любым некорректным id, ошибка 500   
+  **Act:** Ошибка 500  
+  **Exp:** Статус код 404
+- **REQ:** 5
+- **STEPS TO REPRODUCE:**  
+  1.Отправить delete запрос с некорректным id на https://main-bvxea6i-p5ymayxy7m4au.de-2.platformsh.site/api/v1/employee/remove/{id}  
+  ["id" => "aaa"]  
+  ["id" => ""]  
+  ["id" => "@#$%]  
+  ["id" => False]
 - **reproducibility:** всегда
 - **severity:** средняя
 - **priority:** средний

@@ -962,7 +962,7 @@
     "email": "string",  
     "position": "string",  
     "age": 0}
-- **STATUS:** failed
+- **STATUS:** passed
 
 
 ---
@@ -1025,4 +1025,68 @@
   2.Код ответа 404  
   3.Тело ответа возвращается в формате json и имеет следующий вид:  
   {"message": "string"}
+- **STATUS:** failed
+
+
+---
+
+
+- **ID:** emp044
+- **Priority:** A
+- **Requirement:** 5
+- **TITLE:** Удаление сотрудника по корректному id
+- **Precondition:**  Сотрудник добавлен в базу данных, известен его id  
+
+- **STEPS:**   
+  1.Отправить delete запрос на https://main-bvxea6i-p5ymayxy7m4au.de-2.platformsh.site/api/v1/employee/remove/{id}  
+  2.Проверить код ответа  
+  3.Убедиться, что сотрудник удалён из бд, сделать запрос на https://main-bvxea6i-p5ymayxy7m4au.de-2.platformsh.site/api/v1/employee/{id}   
+  4.Проверить код ответа  
+  5.Проверить тело ответа
+- **EXPECTED RESULTS:**  
+  1   
+  2.Код ответа 204  
+  3  
+  4.Код ответа 404  
+  5.Тело ответа имее вид {"message": "string"}  
+- **STATUS:** failed
+
+
+---
+
+
+- **ID:** emp045
+- **Priority:** A
+- **Requirement:** 5
+- **TITLE:** Удаление сотрудника по несуществующему id
+- **STEPS:**   
+  1.Отправить delete запрос на https://main-bvxea6i-p5ymayxy7m4au.de-2.platformsh.site/api/v1/employee/remove/{id}  
+  2.Проверить код ответа
+- **EXPECTED RESULTS:**  
+  1   
+  2.Код ответа 204
+- **STATUS:** passed
+
+
+---
+
+
+- **ID:** emp046
+- **Priority:** A
+- **Requirement:** 5
+- **TITLE:** Удаление сотрудника по некорректному id
+- **ADDITIONAL INFO:**  
+  ["id" => "aaa"]  
+  ["id" => ""]  
+  ["id" => "@#$%]  
+  ["id" => False]
+
+- **STEPS:**   
+  1.Отправить delete запрос с некорректным id на https://main-bvxea6i-p5ymayxy7m4au.de-2.platformsh.site/api/v1/employee/remove/{id}  
+  2.Проверить код ответа  
+  3.Проверить тело ответа
+- **EXPECTED RESULTS:**  
+  1   
+  2.Код ответа 404  
+  3.Тело ответа имеет вид {"message": "string"}
 - **STATUS:** failed
